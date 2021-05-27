@@ -109,9 +109,14 @@ function createGaleryCard(links) {
 
 function onListImgClick(evt) {
   evt.preventDefault();
-  ligthBox.classList.add('is-open')
-  lightBoxImage.src = evt.target.getAttribute("data-source");
-  lightBoxImage.alt = evt.target.alt;
+    if (evt.target.nodeName !== 'IMG') {
+      return;
+    }
+    if (evt.target.nodeName === "IMG") {
+    ligthBox.classList.add('is-open')
+    lightBoxImage.src = evt.target.getAttribute("data-source");
+    lightBoxImage.alt = evt.target.alt;
+  }
 }
 
 
@@ -129,10 +134,10 @@ function pressKey(evt){
   if(evt.code === "Escape") {
   onListImgClickClose()
   }
-  if(evt.code === "ArrowRight"){
+  // if(evt.code === "ArrowRight"){
 
-  }
-  if(evt.code === "ArrowLeft"){
+  // }
+  // if(evt.code === "ArrowLeft"){
 
-  }
+  // }
 }
